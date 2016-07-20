@@ -8,7 +8,7 @@ apply plugin: 'com.android.application'
 //}
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.melnykov:floatingactionbutton:1.0.7'
     debugCompile project(':library')
@@ -24,7 +24,7 @@ project.ext.versionInfo.releaseVersionName = SYNCED_VERSION_NAME
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    buildToolsVersion "23.0.3"
 
     defaultConfig {
         applicationId "com.github.ksoichiro.android.observablescrollview.samples"
@@ -95,7 +95,7 @@ android {
         def output = variant.outputs.get(0)
         File apk = output.outputFile
         String newName = output.outputFile.name.replace(".apk", "-${variant.mergedFlavor.versionCode}-${variant.mergedFlavor.versionName}-${project.ext.versionInfo.build}.apk")
-                .replace("app-", "${variant.mergedFlavor.applicationId}-")
+            .replace("app-", "${variant.mergedFlavor.applicationId}-")
         output.outputFile = new File(apk.parentFile, newName)
     }
 }
